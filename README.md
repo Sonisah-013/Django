@@ -102,7 +102,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Then open your browser at `http://127.0.0.1:8000/`.
+Then open your browser at `http://127.0.0.1:8002/`.
 
 > 💡 Tip: Run `pip freeze > requirements.txt` after installing your dependencies and commit it to the repo, so others can install everything with `pip install -r requirements.txt`.
 
