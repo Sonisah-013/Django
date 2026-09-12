@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'corsheaders',
     'tasks',
+    'attendance',
     
 ]
 
