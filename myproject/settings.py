@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'tasks',
     'attendance',
-    'exams'
+    'exams',
+    'fees',
     
 ]
 

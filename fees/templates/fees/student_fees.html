@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+    <h2>Fee Summary - {{ student.first_name }} {{ student.last_name }}</h2>
+    <p>Total Outstanding Balance: {{ total_due }}</p>
+
+    <table class="attendance-table">
+        <tr>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Amount Due</th>
+            <th>Balance</th>
+            <th>Status</th>
+        </tr>
+        {% for invoice in invoices %}
+        <tr>
+            <td>{{ invoice.description }}</td>
+            <td>{{ invoice.due_date }}</td>
+            <td>{{ invoice.amount_due }}</td>
+            <td>{{ invoice.balance }}</td>
+            <td>{{ invoice.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

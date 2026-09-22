@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+    <h2>Invoice - {{ invoice.description }}</h2>
+    <p>Student: {{ invoice.student.first_name }} {{ invoice.student.last_name }}</p>
+    <p>Amount Due: {{ invoice.amount_due }} | Paid: {{ invoice.amount_paid }} | Balance: {{ invoice.balance }}</p>
+    <p>Status: {{ invoice.status }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Amount: <input type="number" step="0.01" name="amount" required></label>
+        <label>Method: <input type="text" name="method" placeholder="Cash, Bank Transfer..."></label>
+        <button type="submit" class="save-btn">Record Payment</button>
+    </form>
+
+    <h3>Payment History</h3>
+    <table class="attendance-table">
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Method</th>
+        </tr>
+        {% for payment in payments %}
+        <tr>
+            <td>{{ payment.date_paid }}</td>
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.method }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

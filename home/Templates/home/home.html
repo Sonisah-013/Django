@@ -72,33 +72,33 @@
     </a>
 
     <!-- Attendance -->
-    <div class="module-card is-disabled">
+    <div class="module-card">
       <span class="module-icon">04</span>
       <h3>Attendance</h3>
       <p>
         Record daily attendance and generate class-wise absence reports.
       </p>
-      <span class="module-status">Coming soon</span>
+      <a href="{% url 'attendance:course_list' %}" class="module-status">Open →</a>
     </div>
 
     <!-- Exams & Grades -->
-    <div class="module-card is-disabled">
+    <div class="module-card">
       <span class="module-icon">05</span>
       <h3>Exams &amp; Grades</h3>
       <p>
         Schedule examinations, record marks and publish student report cards.
       </p>
-      <span class="module-status">Coming soon</span>
+      <a href="{% url 'exams:exam_list' %}" class="module-status">Open →</a>
     </div>
 
     <!-- Fees -->
-    <div class="module-card is-disabled">
+    <div class="module-card">
       <span class="module-icon">06</span>
       <h3>Fees</h3>
       <p>
         Manage tuition invoices, payment records and outstanding student balances.
       </p>
-      <span class="module-status">Coming soon</span>
+      <a href="{% url 'fees:fee_list' %}" class="module-status">Open →</a>
     </div>
 
   </div>
