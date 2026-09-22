@@ -1,13 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Select a Class</h2>
-<ul>
-    {% for course in courses %}
-    <li>
-        {{ course.name }} —
-        <a href="{% url 'attendance:mark' course.id %}">Mark Attendance</a> |
-        <a href="{% url 'attendance:report' course.id %}">View Report</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="page-container">
+    <h2>Select a Class</h2>
+
+    <ul class="course-list">
+        {% for course in courses %}
+        <li>
+            <span class="course-name">{{ course.name }}</span>
+            <span class="actions">
+                <a href="{% url 'attendance:mark' course.id %}">Mark Attendance</a>
+                <span class="divider">|</span>
+                <a href="{% url 'attendance:report' course.id %}">View Report</a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    .page-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .page-container h2 {
+        margin-bottom: 20px;
+        color: #1c2b3a;
+    }
+    .course-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .course-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 16px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .course-list li:last-child {
+        border-bottom: none;
+    }
+    .course-name {
+        font-weight: 600;
+        font-size: 16px;
+        color: #1c2b3a;
+    }
+    .actions a {
+        color: #2e8b74;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .actions a:hover {
+        text-decoration: underline;
+    }
+    .divider {
+        margin: 0 8px;
+        color: #999;
+    }
+</style>
 {% endblock %}

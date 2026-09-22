@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+    <h2>Report Card - {{ student.first_name }} {{ student.last_name }}</h2>
+
+    <table class="attendance-table">
+        <tr>
+            <th>Exam</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Marks</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.exam.name }}</td>
+            <td>{{ result.exam.course.name }}</td>
+            <td>{{ result.exam.date }}</td>
+            <td>{{ result.marks_obtained }} / {{ result.exam.total_marks }}</td>
+            <td>{{ result.percentage }}%</td>
+            <td>{{ result.grade }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

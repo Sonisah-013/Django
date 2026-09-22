@@ -39,3 +39,21 @@ def absence_report(request, course_id):
     return render(request, 'attendance/report.html', {
         'course': course, 'records': records, 'summary': summary
     })
+
+def student_report(request, student_id):
+    student = Student.objects.get(id=student_id)
+    records = AttendanceRecord.objects.filter(student=student).order_by('-date')
+
+    total = records.count()
+    present = records.filter(status='present').count()
+    absent = records.filter(status='absent').count()
+    late = records.filter(status='late').count()
+
+    return render(request, 'attendance/student_report.html', {
+        'student': student,
+        'records': records,
+        'total': total,
+        'present': present,
+        'absent': absent,
+        'late': late,
+    })

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+    <h2>Exams</h2>
+
+    <p><a href="{% url 'exams:exam_schedule' %}">View Full Exam Schedule</a></p>
+
+    <ul class="course-list">
+        {% for exam in exams %}
+        <li>
+            <span class="course-name">{{ exam.name }} — {{ exam.course.name }} ({{ exam.date }})</span>
+            <span class="actions">
+                <a href="{% url 'exams:add_marks' exam.id %}">Add Marks</a>
+                <span class="divider">|</span>
+                <a href="{% url 'exams:report' exam.id %}">View Report</a>
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

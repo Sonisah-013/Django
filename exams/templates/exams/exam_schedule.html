@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-container">
+    <h2>Exam Schedule</h2>
+
+    <table class="attendance-table">
+        <tr>
+            <th>Exam</th>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Total Marks</th>
+            <th>Status</th>
+        </tr>
+        {% for exam in exams %}
+        <tr>
+            <td>{{ exam.name }}</td>
+            <td>{{ exam.course.name }}</td>
+            <td>{{ exam.date }}</td>
+            <td>{{ exam.total_marks }}</td>
+            <td>
+                {% if exam.date < today %}
+                    <span style="color:#888;">Completed</span>
+                {% elif exam.date == today %}
+                    <span style="color:#c0392b; font-weight:600;">Today</span>
+                {% else %}
+                    <span style="color:#2e8b74; font-weight:600;">Upcoming</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
